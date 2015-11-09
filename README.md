@@ -1,2 +1,3 @@
-# www
-webuser home account
+# web server www-data
+------------
+web worker home account
