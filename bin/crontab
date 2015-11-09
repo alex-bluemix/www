@@ -1,0 +1,7 @@
+#!/bin/sh
+DATE=$(date +%H:%M:%S)
+while [ true ]
+do
+    sh /home/www/bin/gitpull
+    sleep 30
+done

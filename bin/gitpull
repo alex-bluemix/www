@@ -1,5 +1,5 @@
 #!/bin/bash
-DATE=`date`
+DATE=$(date +%H:%M:%S)
 ROOT=/home/www
 LOG="$ROOT/log/gitpull.log"
 PID=""
@@ -10,8 +10,8 @@ sites="
 wix.pointlook.com
 "
 
-echo "Starting gitpull" > $LOG
+echo "$DATE - Starting gitpull" > $LOG
 for dir  in $sites; do
   app="$ROOT/$dir"
-  (( echo "checking $app..." ) && [ -d "$app" ] && ( cd $app; echo "gitpull $app"; git pull ))
+  (( echo "checking $app..." ) && [ -d "$app" ] && ( cd $app; echo "gitpull $app"; git pull )) 2>&1 >> $LOG &
 done
