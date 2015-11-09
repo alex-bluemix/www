@@ -7,11 +7,11 @@ PID=""
 skipsites=""
 
 sites="
-www.alex2006hw.com
+wix.pointlook.com
 "
 
 echo "Starting gitpull" > $LOG
 for dir  in $sites; do
   app="$ROOT/$dir"
-  (( echo "checking $app..." ) && [ -d "$app" ] && ( cd $app; echo "gitpull $app"; git pull )) >> $LOG  &
+  (( echo "checking $app..." ) && [ -d "$app" ] && ( cd $app; echo "gitpull $app"; git pull ))
 done
