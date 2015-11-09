@@ -2,9 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export INIT=bashrc
+export INIT=$INIT:bashrc
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+export LC_ALL=en_US.UTF-8
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -115,6 +117,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+if [ -d "$HOME/.meteor" ] ; then
+    PATH="$HOME/.meteor:$PATH"
+fi
 
 
 eval "$(direnv hook bash)"
@@ -130,7 +135,7 @@ eval "$(pyenv virtualenv-init -)"
 
 # local customizations
 export PATH="~/.local/bin:$PATH"
-[ ! -d ./log ] && mkdir ./log
-[ ! -d ./tmp ] && mkdir ./tmp
-[ ! -L workagent.com ] && ( ln -s www.workagent.com workagent.com) && echo "link created workagent.com"
+#[ ! -d ./log ] && mkdir ./log
+#[ ! -d ./tmp ] && mkdir ./tmp
+#[ ! -L workagent.com ] && ( ln -s www.workagent.com workagent.com) && echo "link created workagent.com"
 [[ -s "/home/www/.gvm/scripts/gvm" ]] && source "/home/www/.gvm/scripts/gvm"
