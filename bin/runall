@@ -2,5 +2,4 @@ ROOT=/home/www
 LOG=$HOME/log/runall.log
 
 GITRESULT=`( $ROOT/bin/gitpull | grep 'Already up-to-date.' )`
-
-if [ "$GITRESULT" ]; then ( $ROOT/bin/run-forever ); fi
+if [ "$GITRESULT" ]; then ( $ROOT/bin/restart-app ); fi

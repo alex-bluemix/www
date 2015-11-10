@@ -2,6 +2,6 @@
 DATE=$(date +%H:%M:%S)
 while [ true ]
 do
-    sh /home/www/bin/gitpull
+    sh /home/www/bin/runall
     sleep 30
 done

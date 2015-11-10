@@ -1,0 +1,6 @@
+FILE=test
+[ $1 ] && FILE=$1
+
+ffmpeg -ss 00:00:10 -i $FILE.mov -ss 00:00:01 -t 00:00:04 -c copy $FILE-cut.mov
+ffmpeg -ss 4 -i $FILE-cut.mov -s:v 1280x720 -frames:v 1 -an $FILE.png
+ffmpeg -i $FILE-cut.mov -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis $FILE.webm
