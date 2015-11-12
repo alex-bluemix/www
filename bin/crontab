@@ -1,7 +1,9 @@
 #!/bin/sh
 DATE=$(date +%H:%M:%S)
+TIMER=10
+
 while [ true ]
 do
     sh /home/www/bin/runall
-    sleep 30
+    sleep $TIMER
 done
